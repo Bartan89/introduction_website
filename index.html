@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Bart</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+
+    <link href="styles/style.css" rel="stylesheet">
+  </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        // Add smooth scrolling to all links
+        $("a").on('click', function(event) {
+          
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+            
+            // Store hash
+            var hash = this.hash;
+            
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 800, function(){
+              
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+            });
+          } // End if
+        });
+      });
+    </script>
+  <body>
+    <div class="main">
+
+
+      <header>
+        <img class="photo-rl" src="images/BartRL.jpg" alt="Photo of Bart">
+
+            <h1 class="bart-header">Bart's</h1>
+            <h3>Digital domain</h3>
+            <div class="scroll-down-div">
+              <a href="#section2" class="scroll-down" address="true"></a>
+              <p class="scrollDownInfoText"><b>scroll down</b></p>
+            </div>
+          </header>
+          
+          
+          <div id="section2">
+            <h2>I was born on the 4th of May 1989, In a small town called <a target="_blank" href="https://forvo.com/word/wijchen/">Wijchen</a></h2>
+          </div>
+            <div class="born-map">
+              <div class="markerPosition">
+                <div class='pin bounce'></div>
+                <div class='pulse'></div>
+              </div>
+              <img src="images/Netherlands.svg" alt="text">
+            </div>
+        </div>
+
+        <h2>In a family of 7! With 4 older brothers, get to know them here:</h2>
+      </div>
+
+
+
+      <div class="brothers-list">
+        <img class="avatar-brother" src="images/Standard.png" id="Bart" style="display: block;"/>
+        <img class="avatar-brother" src="images/Standard.png" id="Joris" style="display: block;"/>
+        <img class="avatar-brother" src="images/Standard.png" id="Niels" style="display: block;"/>
+        <img class="avatar-brother" src="images/Standard.png" id="Maarten" style="display: block;"/>
+        <img class="avatar-brother" src="images/Standard.png" id="Wouter" style="display: block;"/>
+      </div>
+            
+      <button class="button6" id="myBtn">Start here</button>
+
+      <script>
+
+        document.getElementById("myBtn").addEventListener("click", changeBtnText);
+
+        let counter = 0;
+        function changeBtnText() {
+          let dynamicBtn = ["Bart", "Joris", "Niels", "Maarten", "Wouter"]
+          document.getElementById("myBtn").innerHTML = dynamicBtn[counter];
+          console.log(dynamicBtn[counter])
+          if(counter < 4){
+            counter++;
+          } else {
+            counter = 4;
+          }
+        }
+
+      </script>
+
+      <script>
+      document.getElementById("myBtn").addEventListener("click", displayDate);
+
+      let range = 0;
+function displayDate() {
+        let brothers = ["Bart", "Joris", "Niels", "Maarten", "Wouter"]
+
+        console.log(`${brothers[range]}.png`);
+        document.getElementById(`${brothers[range]}`).src = `images/${brothers[range]}.png`;
+        range ++;
+      }
+      </script>
+
+<h2>Slide the slider to see where I lived and how long:</h2>
+
+
+<p id="monthsIndicator">More than 0 months</p>
+
+<input type="range" min="1" max="30" value="1" class="slider" id="myRange">
+</div>
+
+
+
+
+
+
+<div class="cards">
+<div id="Seoul" class="card">
+  <img src="images/Seoul.jpg" alt="Avatar" style="width:100%">
+  <div class="container">
+    <h4><b>Seoul</b></h4>
+    <p>Summer course</p>
+  </div>
+</div>
+
+  <div id="Amsterdam" class="card">
+    <img src="images/Amsterdam.jpg" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4><b>Amsterdam</b></h4>
+      <p>Both studied and work</p>
+    </div>
+  </div>
+  
+  <div id="Frankfurt" class="card">
+    <img src="images/Frankfurt.jpg" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4><b>Frankfurt am  Main</b></h4>
+      <p>Internship</p>
+    </div>
+  </div>
+
+  <div id="Prague" class="card">
+    <img src="images/Prague.jpg" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4><b>Prague</b></h4>
+      <p>Taking a gap 1/2 year</p>
+    </div>
+  </div>
+
+  <div id="Berlin" class="card">
+    <img src="images/Berlin.jpg" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4><b>Berlin</b></h4>
+      <p>Worked</p>
+    </div>
+  </div>
+  
+  <div id="Stockholm" class="card">
+    <img src="images/Stockholm.jpg" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4><b>Stockholm</b></h4>
+      <p>Worked</p>
+    </div>
+  </div>
+
+  <div id="Uppsala" class="card">
+    <img src="images/Uppsala.jpg" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4><b>Uppsala</b></h4>
+      <p>Studied and worked</p>
+    </div>
+  </div>
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+<script>
+
+
+let slider = document.getElementById('myRange');
+let month = document.getElementById('monthsIndicator');
+
+let obj = {
+    Amsterdam: 11,
+    Prague: 13,
+    Uppsala: 19,
+    Stockholm: 17,
+    Berlin: 10,
+    Seoul: 3,
+    Frankfurt: 5
+  }
+
+
+
+
+slider.addEventListener('input', function() {
+  if(slider.value > 48) {
+  monthsIndicator.innerText = `More than 4 years`; 
+  } else if (slider.value > 36) {
+    monthsIndicator.innerText = `More than 3 years and ${slider.value - 36} months`;  
+  } else if(slider.value > 24) {
+    monthsIndicator.innerText = `More than 2 years and ${slider.value - 24} months`;
+  } else if(slider.value > 13){
+    monthsIndicator.innerText = `More than 1 year and ${slider.value - 12} months`;
+  } else {
+    monthsIndicator.innerText = `More than ${slider.value - 1} months`;
+  }
+
+
+
+  for (const [key, value] of Object.entries(obj)) {
+    if(value+2 > slider.value){
+
+      document.getElementById(`${key}`).style.display = "block";
+
+      
+  } else {
+    document.getElementById(`${key}`).style.display = "none";
+  }
+}
+
+});
+
+// to show month initially
+//monthDiv.innerText = months[slider.value - 1];
+
+
+
+
+
+</script>
+
+
+<h2>'Chat' with me and see how alike we are:</h2>
+
+
+<div class="chat-windows">
+<div class="chat">
+  <h4>How do you feel about collaboration?</h4>
+  <div class="mine messages">
+    <div class="message last">
+      <small id="userInputBubbleOne">Slide to pick your opinion</small>
+    </div>
+  </div>
+  <input class="sl-q" type="range" min="0" max="4" value="0" id="SliderOne">
+  <button class="btn-send" id="btnSendOne">Send</button>
+  <small class="message-box" style="display: none" id="msgOneBubbleOne">...</small>
+  <small class="message-box" style="display: none" id="msgTwoBubbleOne">...</small>
+  <small class="message-box" style="display: none" id="msgThreeBubbleOne">...</small>
+</div>
+
+
+<div class="chat">
+  <h4>What is your favourite thing about coding?</h4>
+  <div class="mine messages">
+    <div class="message last">
+      <small id="userInputBubbleTwo">Slide to pick your opinion</small>
+    </div>
+  </div>
+  <input class="sl-q" type="range" min="0" max="4" value="0" id="SliderTwo">
+  <button class="btn-send" id="btnSendTwo">Send</button>
+  <small class="message-box" style="display: none" id="msgOneBubbleTwo">...</small>
+  <small class="message-box" style="display: none" id="msgTwoBubbleTwo">...</small>
+  <small class="message-box" style="display: none" id="msgThreeBubbleTwo">...</small>
+</div>
+
+<div class="chat">
+  <h4>Why did you join the bootcamp?</h4>
+  <div class="mine messages">
+    <div class="message last">
+      <small id="userInputBubbleThree">Slide to pick your opinion</small>
+    </div>
+  </div>
+  <input class="sl-q" type="range" min="0" max="4" value="0" id="SliderThree">
+  <button class="btn-send" id="btnSendThree">Send</button>
+  <small class="message-box" style="display: none" id="msgOneBubbleThree">...</small>
+  <small class="message-box" style="display: none" id="msgTwoBubbleThree">...</small>
+  <small class="message-box" style="display: none" id="msgThreeBubbleThree">...</small>
+</div>
+
+<div class="chat">
+  <h4>When are you most productive?</h4>
+  <div class="mine messages">
+    <div class="message last">
+      <small id="userInputBubbleFour">Slide to pick your opinion</small>
+    </div>
+  </div>
+  <input class="sl-q" type="range" min="0" max="4" value="0" id="SliderFour">
+  <button class="btn-send" id="btnSendFour">Send</button>
+  <small class="message-box" style="display: none" id="msgOneBubbleFour">...</small>
+  <small class="message-box" style="display: none" id="msgTwoBubbleFour">...</small>
+  <small class="message-box" style="display: none" id="msgThreeBubbleFour">...</small>
+</div>
+
+<div class="chat">
+  <h4>What is your least favourite thing about coding?</h4>
+  <div class="mine messages">
+    <div class="message last">
+      <small id="userInputBubbleFive">Slide to pick your opinion</small>
+    </div>
+  </div>
+  <input class="sl-q" type="range" min="0" max="4" value="0" id="SliderFive">
+  <button class="btn-send" id="btnSendFive">Send</button>
+  <small class="message-box" style="display: none" id="msgOneBubbleFive">...</small>
+  <small class="message-box" style="display: none" id="msgTwoBubbleFive">...</small>
+  <small class="message-box" style="display: none" id="msgThreeBubbleFive">...</small>
+</div>
+
+<div class="chat">
+  <h4>What technology are you most excited about?</h4>
+  <div class="mine messages">
+    <div class="message last">
+      <small id="userInputBubbleSix">Slide to pick your opinion</small>
+    </div>
+  </div>
+  <input class="sl-q" type="range" min="0" max="4" value="0" id="SliderSix">
+  <button class="btn-send" id="btnSendSix">Send</button>
+  <small class="message-box" style="display: none" id="msgOneBubbleSix">...</small>
+  <small class="message-box" style="display: none" id="msgTwoBubbleSix">...</small>
+  <small class="message-box" style="display: none" id="msgThreeBubbleSix">...</small>
+</div>
+
+
+ </div>
+
+
+
+
+
+<script>
+ChatBart("SliderSix", "userInputBubbleSix", 0, 
+          "VR & AR", 
+          "Self-driving cars",
+          "Blockchain",
+          "Electric transportation",
+          "I don't really care about tech",
+          "btnSendSix", "msgOneBubbleSix", "msgTwoBubbleSix", "msgThreeBubbleSix", 
+          "VR but especially AR are super exciting technologies to me. Of course as with every tech there are downsides. But overall I think it could be amazing. 😎",
+          "High-five, 🙌 same enthusiasm!",
+          "Well we can't be similar on all topics right 😜")
+
+ChatBart("SliderFive", "userInputBubbleFive", 3, 
+          "Debugging", 
+          "Front-end",
+          "Back-end",
+          "HTML/CSS",
+          "Googling",
+          "btnSendFive", "msgOneBubbleFive", "msgTwoBubbleFive", "msgThreeBubbleFive", 
+          "HTML and CSS is least exciting to me 🥱",
+          "Welcome to the club, we think alike on this",
+          "We could team up and do the things we like least less 😬")
+
+ChatBart("SliderFour", "userInputBubbleFour", 4, 
+          "Middle of the night", 
+          "Always",
+          "Mid day",
+          "Evening",
+          "Morning",
+          "btnSendFour", "msgOneBubbleFour", "msgTwoBubbleFour", "msgThreeBubbleFour", 
+          "I tend to be most productive in the morning, not sure why 😛",
+          "Wow, both productive in the morning! 😎",
+          "Good thing we have git!")
+
+ChatBart("SliderThree", "userInputBubbleThree", 0, 
+          "Career change", 
+          "Career boosting",
+          "Just interested in something new",
+          "I am not sure",
+          "A bit of everything 🙄",
+          "btnSendThree", "msgOneBubbleThree", "msgTwoBubbleThree", "msgThreeBubbleThree", 
+          "A change of career is what I am aiming for, I love what I did but tech has so much potential! 😎",
+          "Cool, we had the same idea!",
+          "We thought about it differently, no worries")
+
+
+ChatBart("SliderTwo", "userInputBubbleTwo", 1, 
+          "Loops, loops, loops, gimme that syntactic sugar", 
+          "I like that I can put my ideas in the cloud",
+          "I am still exploring, so not sure...",
+          "I want to make tons of money",
+          "Mmm a combination of all",
+          "btnSendTwo", "msgOneBubbleTwo", "msgTwoBubbleTwo", "msgThreeBubbleTwo", 
+          "All great options, but I would say I like to have my ideas live in the cloud for everyone to use 😎",
+          "Nice that we thought the same about it!",
+          "We didn't had the same answer, but that is totally fine. 😏")
+
+
+
+ChatBart("SliderOne", "userInputBubbleOne", 3, 
+          "I prefer working alone", 
+          "So so, I don't have a preference",
+          "I don't really have an opinion",
+          "Colabs sometimes are amazing",
+          "I live for colaboration",
+          "btnSendOne", "msgOneBubbleOne", "msgTwoBubbleOne", "msgThreeBubbleOne", 
+          "I always say: 'Colabs sometimes are amazing'",
+          "Seem we are pretty aligned huh",
+          "I am sure we complement each other!")
+
+  function ChatBart (slider, userInputBubble, matchAnswerToQ, aOne, aTwo, aThree, aFour, aFive,btnSend, msgOneBubble, msgTwoBubble, msgThreeBubble, returnMsgOne, returnMsgTwoMatch, returnMsgTwoNoMatch){
+    let answer = [aOne, aTwo, aThree, aFour, aFive]
+    document.getElementById(`${slider}`).addEventListener('input', function() {
+      document.getElementById(`${userInputBubble}`).innerHTML = answer[document.getElementById(`${slider}`).value];
+    }) 
+    let sum = [];
+    let init = 0;
+    let sliderElement = document.getElementById(`${slider}`);    
+    sliderElement.addEventListener('input', function(){
+      sum.push(parseInt(slider.value));
+      if(sum.length > 1){
+        sum.shift();
+      }
+    });    
+    let sendButton = document.getElementById(`${btnSend}`);    
+    sendButton.addEventListener('click', function(){   
+      
+      document.getElementById(`${msgOneBubble}`).style.display = "block";
+      
+      setTimeout(function() {
+        document.getElementById(`${msgOneBubble}`).innerHTML = returnMsgOne;
+    
+        document.getElementById(`${msgTwoBubble}`).style.display = "block";
+        setTimeout(function(){
+          if(document.getElementById(`${slider}`).value == matchAnswerToQ){
+            document.getElementById(`${msgTwoBubble}`).innerHTML = returnMsgTwoMatch;
+          } else {
+            document.getElementById(`${msgTwoBubble}`).innerHTML = returnMsgTwoNoMatch;
+          }
+          document.getElementById(`${msgThreeBubble}`).style.display = "block"; 
+            setTimeout(function(){
+              const ends = ["Did you try all the other chats? 😄", "Try some of the other chats 😏", "Make sure to try the other chats 😃", "Get to know me one chat at a time", "Cool getting to know you...", "I hope this helps you to get an image of me", "Email me at 'bart.kuijper89@gmail.com' if you find a bug", "Try the others as well..", "I wasn't entirely sure about this one...", "It is nice hearing about your preferences..", "Cool how technology can help us get to know each other", "Have you tried all of them? 🥳"];
+            const randomEnd = ends[Math.floor(Math.random() * ends.length)];
+
+              document.getElementById(`${msgThreeBubble}`).innerHTML = randomEnd;
+          }, 1800)  
+        }, 1800)  
+      }, 900)  
+    });
+}
+</script>
+
+
+
+<div class="footer">
+
+  <small class="footer-text">All right reserved Bart Kuijper 2020</small>
+</div>
+
+
+  </body>
+</html> 
